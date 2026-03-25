@@ -1,0 +1,167 @@
+/* Container Spacing */
+.schedule-manager-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Glass Card */
+.schedule-card.glass-morph {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px border rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 40px;
+  width: 100%;
+  max-width: 800px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+.schedule-card h2 {
+  color: #fff; /* Fallback for very old browsers */
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+  background: linear-gradient(90deg, #00d2ff 0%, #3a7bd5 100%);
+  
+  /* Add these three together */
+  background-clip: text;          /* Standard version */
+  -webkit-background-clip: text;   /* Webkit version (Chrome/Safari) */
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 30px;
+  font-size: 0.95rem;
+}
+
+/* Day Rows */
+.day-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+  margin-bottom: 12px;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.day-row.active {
+  background: rgba(0, 210, 255, 0.08);
+  border: 1px solid rgba(0, 210, 255, 0.2);
+}
+
+.day-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  min-width: 150px;
+}
+
+.day-name {
+  color: #fff;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+/* Time Inputs */
+.time-pickers {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.time-pickers input {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #fff;
+  padding: 8px 12px;
+  font-family: inherit;
+  outline: none;
+  transition: border 0.3s;
+}
+
+.time-pickers input:focus {
+  border-color: #00d2ff;
+}
+
+.off-text {
+  color: rgba(255, 255, 255, 0.3);
+  font-style: italic;
+}
+
+/* Toggle Switch Styling */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 22px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px; width: 16px;
+  left: 3px; bottom: 3px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #00d2ff;
+}
+
+input:checked + .slider:before {
+  transform: translateX(22px);
+}
+
+/* Save Button */
+.save-schedule-btn {
+  margin-top: 30px;
+  width: 100%;
+  padding: 16px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.save-schedule-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 210, 255, 0.3);
+}
+
+.save-schedule-btn:disabled {
+  background: #444;
+  cursor: not-allowed;
+  transform: none;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

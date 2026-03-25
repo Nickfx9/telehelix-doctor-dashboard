@@ -1,0 +1,262 @@
+/* ===================================================== 
+   PROFESSIONAL MESSAGING SUITE (WHITE BACKGROUND MODE)
+   UPDATED FOR ZOCDOC-LEVEL POSITIONING
+   ===================================================== */
+
+/* Main wrapper */
+.inbox-main-wrapper {
+  display: flex;
+  width: 100%;
+  height: 100vh; /* full viewport height */
+  background: #f9fafb; /* light white/grey background */
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+/* =====================================================
+   INTERNAL PATIENT SIDEBAR
+   ===================================================== */
+
+.inbox-sidebar {
+  width: 320px;
+  background: #2563eb; /* Blue sidebar for patients list */
+  border-right: 1px solid rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  min-height: 0; /* allow scroll inside flex */
+}
+
+.sidebar-header-clinical h2,
+.patient-tile-clinical,
+.patient-tile-clinical:hover,
+.patient-tile-clinical.active,
+.active-indicator {
+  color: white;
+}
+
+.patient-list {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding-bottom: 10px;
+}
+
+/* =====================================================
+   MAIN CHAT AREA
+   ===================================================== */
+
+.inbox-chat-area {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  background: #ffffff;
+  min-height: 0; /* allows messages to shrink properly */
+}
+
+/* HEADER */
+
+.chat-header-clinical {
+  height: 70px;
+  background: #ffffff;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  display: flex;
+  align-items: center;
+  padding: 0 25px;
+  color: #111827;
+  font-weight: 600;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.back-btn-clinical {
+  margin-right: 12px;
+  font-size: 1.2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #111827;
+}
+
+.header-info-clinical h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.status-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.status-dot.online {
+  background: #10b981;
+}
+
+.status-dot.pulse {
+  background: #10b981;
+  animation: pulse-dot 1.2s infinite;
+}
+
+@keyframes pulse-dot {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.6; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* =====================================================
+   MESSAGE STREAM
+   ===================================================== */
+
+.messages-stream-clinical {
+  flex: 1 1 auto; /* take remaining space */
+  overflow-y: auto;
+  padding: 20px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: #ffffff;
+}
+
+/* ROW ALIGNMENT */
+.msg-row {
+  display: flex;
+  width: 100%;
+}
+
+.msg-row.me {
+  justify-content: flex-end;
+}
+
+.msg-row.them {
+  justify-content: flex-start;
+}
+
+/* MESSAGE BUBBLES */
+.msg-bubble-clinical {
+  max-width: 60%;
+  padding: 14px 18px;
+  border-radius: 16px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  backdrop-filter: blur(0px);
+}
+
+/* Doctor messages */
+.me .msg-bubble-clinical:not(.image-content) {
+  background: #2563eb;
+  color: white;
+  border-bottom-right-radius: 6px;
+}
+
+/* Patient messages */
+.them .msg-bubble-clinical:not(.image-content) {
+  background: #f3f4f6;
+  color: #111827;
+  border: 1px solid rgba(0,0,0,0.05);
+  border-bottom-left-radius: 6px;
+}
+
+/* =====================================================
+   IMAGE MESSAGES
+   ===================================================== */
+
+.msg-bubble-clinical.image-content {
+  padding: 10px;
+  background: #f3f4f6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.chat-image-container-clinical {
+  width: 100%;
+  max-width: 260px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.clinical-attachment-img {
+  width: 100%;
+  display: block;
+  cursor: zoom-in;
+}
+
+.expand-hint-clinical {
+  font-size: 0.7rem;
+  color: #6b7280;
+  margin-top: 8px;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* =====================================================
+   INPUT AREA
+   ===================================================== */
+
+.chat-input-clinical {
+  flex-shrink: 0;
+  padding: 15px 25px;
+  background: #ffffff;
+  border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+.input-container-clinical {
+  display: flex;
+  background: #f3f4f6;
+  border-radius: 14px;
+  padding: 6px 6px 6px 18px;
+  align-items: center;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.input-container-clinical input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 0.9rem;
+  padding: 12px 0;
+  color: #111827;
+}
+
+.send-btn-clinical {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.send-btn-clinical:hover {
+  background: #1d4ed8;
+}
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 768px) {
+  .mobile-hide {
+    display: none !important;
+  }
+
+  .inbox-sidebar {
+    width: 100%;
+  }
+}

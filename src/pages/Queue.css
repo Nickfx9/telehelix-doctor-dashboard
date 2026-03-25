@@ -1,0 +1,181 @@
+/* Queue Container Layout */
+.queue-container {
+  padding: 20px;
+  color: #ffffff;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.queue-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.header-text h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  background: linear-gradient(90deg, #00d2ff 0%, #3a7bd5 100%);
+  -webkit-background-clip: text; /* Vendor prefix for Chrome/Safari */
+  background-clip: text;         /* Standard property - THIS FIXES THE ERROR */
+  -webkit-text-fill-color: transparent;
+}
+
+.count-badge {
+  background: #43A047;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 15px rgba(67, 160, 71, 0.3);
+}
+
+/* The Request Cards */
+.request-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 20px;
+}
+
+.request-card {
+  background: rgba(25, 118, 210, 0.1);
+  border-radius: 20px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.request-card:hover {
+  transform: translateY(-5px);
+  border-color: #1976D2;
+  background: rgba(25, 118, 210, 0.15);
+}
+
+/* Notification Pulse for new requests */
+.incoming-pulse {
+  animation: pulseBorder 2s infinite;
+}
+
+@keyframes pulseBorder {
+  0% { box-shadow: 0 0 0 0 rgba(25, 118, 210, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(25, 118, 210, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(25, 118, 210, 0); }
+}
+
+/* Card Content Details */
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.patient-meta {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.patient-avatar {
+  width: 45px;
+  height: 45px;
+  background: linear-gradient(135deg, #1976D2, #00d2ff);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.mode-tag {
+  font-size: 0.7rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2px 8px;
+  border-radius: 4px;
+  color: #00d2ff;
+}
+
+.symptom-box {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.symptom-box label {
+  display: block;
+  font-size: 0.75rem;
+  color: #aaa;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.symptom-box p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* Buttons */
+.card-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.accept-request-btn {
+  flex: 2;
+  background: #1976D2;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.accept-request-btn:hover {
+  background: #1565C0;
+}
+
+.decline-btn {
+  flex: 1;
+  background: transparent;
+  color: #ff5252;
+  border: 1px solid #ff5252;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* Empty State Style */
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 100px 0;
+  opacity: 0.5;
+}
+
+.radar-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  animation: rotate 4s linear infinite;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

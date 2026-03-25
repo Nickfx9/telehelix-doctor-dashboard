@@ -1,0 +1,206 @@
+/* Container Layout */
+.appointment-manager {
+  padding: 2rem;
+  color: #ffffff;
+  min-height: 100vh;
+  background: radial-gradient(circle at top right, #1a237e, #000000);
+  font-family: 'Inter', sans-serif;
+}
+
+.manager-header {
+  margin-bottom: 2rem;
+  border-left: 4px solid #00e676;
+  padding-left: 1.5rem;
+}
+
+.manager-header h1 {
+  font-size: 2rem;
+  letter-spacing: -1px;
+  margin: 0;
+}
+
+.manager-header p {
+  color: #b0bec5;
+  margin: 0.5rem 0 0;
+}
+
+/* Grid System */
+.appointment-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+@media (max-width: 900px) {
+  .appointment-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Columns */
+.appointment-column {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 1.5rem;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.column-title h3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0;
+  font-weight: 500;
+  color: #90caf9;
+}
+
+.badge {
+  background: #f44336;
+  color: white;
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+}
+
+.badge.confirm-bg {
+  background: #00e676;
+}
+
+/* Card Styling */
+.request-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 1.2rem;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.pending-border {
+  border-left: 4px solid #ff9100;
+  animation: cardPulse 2s infinite;
+}
+
+.confirmed-border {
+  border-left: 4px solid #00e676;
+}
+
+/* Avatar & Info */
+.patient-info {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.patient-avatar-sm {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #1976d2, #64b5f6);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.patient-info h4 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.visit-reason {
+  font-size: 0.85rem;
+  color: #ffab91;
+  margin: 4px 0 0;
+  font-style: italic;
+}
+
+/* Slot Tags */
+.slot-detail {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.date-tag, .time-tag {
+  background: rgba(144, 202, 249, 0.1);
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  border: 1px solid rgba(144, 202, 249, 0.2);
+}
+
+/* Action Buttons */
+.action-row {
+  display: flex;
+  gap: 0.8rem;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-weight: 600;
+  transition: transform 0.2s;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+.accept-btn {
+  background: #00e676;
+  color: #000;
+  flex: 2;
+}
+
+.decline-btn {
+  background: rgba(244, 67, 54, 0.2);
+  color: #ff5252;
+  border: 1px solid #ff5252;
+  flex: 1;
+}
+
+.start-btn-sm {
+  background: #1976d2;
+  color: white;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.start-btn-sm:disabled {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.3);
+  cursor: not-allowed;
+}
+
+/* Animations */
+@keyframes cardPulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 145, 0, 0.2); }
+  70% { box-shadow: 0 0 0 10px rgba(255, 145, 0, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 145, 0, 0); }
+}
+
+.empty-msg {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.3);
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+
+/* Custom Scrollbar for columns */
+.appointment-column::-webkit-scrollbar {
+  width: 6px;
+}
+.appointment-column::-webkit-scrollbar-track {
+  background: transparent;
+}
+.appointment-column::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}

@@ -1,0 +1,270 @@
+/* ======================================================
+   PROFESSIONAL CENTERED DASHBOARD ARCHITECTURE
+   ====================================================== */
+
+.telehelix-layout {
+  display: flex;
+  min-height: 100vh;
+  background: #0b1220; /* Stable dark base */
+  font-family: Arial, sans-serif;
+  color: #e2e8f0;
+}
+
+/* Remove dynamic background interference */
+.tab-queue,
+.tab-bookings,
+.tab-schedule,
+.tab-patients,
+.tab-settings {
+  background: #0b1220 !important;
+}
+
+/* ======================================================
+   VIDEO CONSULTATION SUITE (FIXED PRIORITY)
+   ====================================================== */
+
+.video-consultation-suite {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000000;
+  z-index: 9999; /* Higher than everything else */
+  display: flex;
+  flex-direction: column;
+}
+
+/* When in call, remove margins and padding from main layout */
+.incall-active .viewport-content {
+  margin-left: 0 !important;
+  margin-top: 0 !important;
+  width: 100% !important;
+  padding: 0 !important;
+}
+
+.incall-active .scrollable-content {
+  max-width: 100% !important;
+  padding: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+}
+
+/* ======================================================
+   HEADER
+   ====================================================== */
+
+.view-header {
+  position: fixed;
+  top: 0;
+  left: 320px;
+  right: 0;
+  height: 75px;
+  background: #0f172a;
+  display: flex;
+  align-items: center;
+  padding: 0 40px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.header-flex {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dr-status-pill {
+  color: #94a3b8;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dot.online {
+  width: 8px;
+  height: 8px;
+  background: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #10b981;
+}
+
+/* ======================================================
+   SIDEBAR
+   ====================================================== */
+
+.glass-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 320px;
+  height: 100vh;
+  background: #111827; /* solid for contrast */
+  display: flex;
+  flex-direction: column;
+  padding: 30px 20px;
+  box-sizing: border-box;
+  border-right: 1px solid rgba(255,255,255,0.05);
+  overflow-y: auto;
+  z-index: 10;
+  transition: transform 0.3s ease;
+}
+
+/* ======================================================
+   PROFILE CARD
+   ====================================================== */
+
+.sidebar-identity-card {
+  background: #1e293b;
+  padding: 25px 20px;
+  border-radius: 18px;
+  text-align: center;
+  margin-bottom: 30px;
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.profile-circle-wrapper {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #3b82f6;
+  margin: 0 auto 15px;
+  background: #0f172a;
+  cursor: pointer;
+  position: relative;
+}
+
+.profile-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ======================================================
+   NAVIGATION SECTION
+   ====================================================== */
+
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.nav-links button {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 12px;
+  border: none;
+  background: transparent;
+  color: #cbd5e1;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.nav-links button:hover {
+  background: rgba(255,255,255,0.06);
+  color: white;
+}
+
+.nav-links button.active {
+  background: #2563eb;
+  color: white;
+  box-shadow: 0 8px 20px rgba(37,99,235,0.3);
+}
+
+/* ======================================================
+   MAIN CONTENT
+   ====================================================== */
+
+.viewport-content {
+  margin-left: 320px;
+  margin-top: 75px;
+  padding: 40px;
+  width: calc(100% - 320px);
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.scrollable-content {
+  max-width: 1200px;
+  margin: 0 auto; /* CENTER CONTENT */
+  background: #111827;
+  padding: 35px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.05);
+  min-height: calc(100vh - 150px);
+}
+
+/* ======================================================
+   UTILITIES
+   ====================================================== */
+
+.sidebar-badge-bubble {
+  background: #ef4444;
+  color: white;
+  font-size: 11px;
+  font-weight: bold;
+  min-width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 0 6px;
+  margin-left: auto;
+}
+
+.no-scroll-dashboard {
+  overflow: hidden !important;
+  height: 100vh;
+}
+
+.blur-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 5;
+}
+
+/* Mobile Adjustments for Hamburger */
+.fab-menu {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+@media (max-width: 1024px) {
+  .glass-sidebar {
+    transform: translateX(-100%);
+  }
+  .glass-sidebar.show {
+    transform: translateX(0);
+  }
+  .viewport-content {
+    margin-left: 0;
+    width: 100%;
+  }
+  .view-header {
+    left: 0;
+  }
+  .fab-menu {
+    display: block;
+  }
+}

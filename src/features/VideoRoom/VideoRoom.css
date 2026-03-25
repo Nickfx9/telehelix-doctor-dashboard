@@ -1,0 +1,194 @@
+.video-consultation-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: #0f172a;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- NEW: RECONNECTING OVERLAY --- */
+.web-reconnecting-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+.web-loader {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin-loader 2s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin-loader {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.remote-player-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+  position: relative;
+}
+
+/* Diagnostic Bar */
+.call-diagnostics {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  gap: 12px;
+  z-index: 25;
+}
+
+.status-badge {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  background: rgba(15, 23, 42, 0.8);
+  color: white;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.status-badge.good { border-left: 4px solid #10b981; }
+.status-badge.poor { border-left: 4px solid #ef4444; }
+.status-badge.live { color: #10b981; animation: pulse 2s infinite; }
+
+/* SUB VIEW: Local Doctor (Floating Picture-in-Picture) */
+.local-player-wrapper {
+  position: absolute;
+  bottom: 110px; 
+  right: 30px;
+  width: 240px; 
+  height: 180px;
+  border: 3px solid #3b82f6;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #1e293b;
+  z-index: 10;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.screen-share-indicator {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0f172a;
+  color: #3b82f6;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.video-controls {
+  height: 80px;
+  background: rgba(15, 23, 42, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 20;
+}
+
+.control-btn {
+  padding: 12px 24px;
+  border-radius: 10px;
+  border: none;
+  background: #334155;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.control-btn:hover {
+  background: #475569;
+  transform: translateY(-2px);
+}
+
+.control-btn.active { background: #3b82f6; }
+
+.control-btn.end-call { 
+  background: #ef4444; 
+}
+
+.control-btn.end-call:hover {
+  background: #dc2626;
+}
+
+.control-btn.off { 
+  background: #64748b; 
+  opacity: 0.8;
+}
+
+.player-label {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  background: rgba(15, 23, 42, 0.7);
+  color: #f8fafc;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  z-index: 15;
+}
+
+.waiting-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+.pulse-loader {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 4px solid #3b82f6;
+  border-top-color: transparent;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes pulse { 0% { opacity: 0.6; } 50% { opacity: 1; } 100% { opacity: 0.6; } }
+
+/* AGORA ELEMENT FIXES */
+.remote-player-wrapper div,
+.local-player-wrapper div,
+.agora_video_player {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+.remote-video-frame {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+video {
+  object-fit: cover !important;
+  background-color: black;
+}
