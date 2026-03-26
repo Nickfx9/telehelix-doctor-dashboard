@@ -1,6 +1,5 @@
 import { useState } from "react";
 import "./Login.css";
-// 🔹 import Firebase auth client
 import { auth } from "../firebaseClient"; 
 import { signInWithCustomToken } from "firebase/auth";
 
@@ -17,48 +16,30 @@ export default function Login({ onLogin, switchToRegister }) {
       setError("Please fill in both fields");
       return;
     }
-
     setError("");
     setLoading(true);
-
     try {
-      // 1. Call your backend to verify user and get a Custom Token
       const response = await fetch(`${BACKEND_URL}/api/doctors/auth/doctor/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
       });
-
       const data = await response.json();
-
       if (!response.ok) {
         setError(data.error || "Login failed. Check credentials.");
         setLoading(false);
         return;
       }
-
-      // 2. EXCHANGE Custom Token for a real ID Token using Firebase Client
       if (data.token) {
-        // Sign in to Firebase on the frontend using the token from the backend
         const userCredential = await signInWithCustomToken(auth, data.token);
-        
-        // --- NEW: CAPTURE THE UID FOR THE QUEUE ---
         const uid = userCredential.user.uid;
         localStorage.setItem("doctorUid", uid);
-        // ------------------------------------------
-
-        // Get the real ID Token (this is what the backend middleware expects)
         const idToken = await userCredential.user.getIdToken();
-        
-        // 3. STORE AS "authToken" TO MATCH DASHBOARD.JS
         localStorage.setItem("authToken", idToken);
-        
-        // Pass the updated data object (with ID token and UID) to the parent component
         onLogin({ ...data, token: idToken, uid: uid });
       } else {
         throw new Error("No token received from server");
       }
-
     } catch (err) {
       console.error("Login Error:", err);
       setError(err.message || "Network error. Try again.");
@@ -68,38 +49,51 @@ export default function Login({ onLogin, switchToRegister }) {
   };
 
   return (
-    <div className="login-container">
-      <div className="login-card">
-        <h1>TeleHelix Login</h1>
-        <p>Enter your email and password</p>
+    <div className="login-card">
+      <div className="card-header">
+        <h1>Doctor Portal</h1>
+        <p>Access your clinical workspace</p>
+      </div>
 
+      <div className="input-group">
+        <label>Medical Email</label>
         <input
           type="email"
-          placeholder="Email"
+          placeholder="e.g. doctor@telehelix.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
+      </div>
 
+      <div className="input-group">
+        <div className="label-row">
+          <label>Password</label>
+          <span className="forgot-link">Forgot Password?</span>
+        </div>
         <input
           type="password"
-          placeholder="Password"
+          placeholder="••••••••"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-
-        {error && <p className="error-text">{error}</p>}
-
-        <button onClick={handleLogin} disabled={loading}>
-          {loading ? "Logging in..." : "Login"}
-        </button>
-
-        <p className="switch-text">
-          New here?{" "}
-          <span className="switch-link" onClick={switchToRegister}>
-            Register
-          </span>
-        </p>
       </div>
+
+      {error && <div className="error-box">{error}</div>}
+
+      <button className="login-btn" onClick={handleLogin} disabled={loading}>
+        {loading ? <span className="loader"></span> : "Sign In to Dashboard"}
+      </button>
+
+      <div className="divider">
+        <span>OR</span>
+      </div>
+
+      <p className="switch-text">
+        New to TeleHelix?{" "}
+        <span className="register-highlight" onClick={switchToRegister}>
+          Create Provider Account
+        </span>
+      </p>
     </div>
   );
 }

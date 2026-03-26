@@ -1,60 +1,152 @@
-.login-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background: linear-gradient(to right, #0a0f1f, #00e5a8);
-  font-family: Arial, sans-serif;
-}
-
+/* --- THE SKY GLASS CARD: PROFESSIONAL RESTRUCTURE --- */
 .login-card {
-  background: white;
-  padding: 40px;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  /* 🌊 FORCED BLUE DEPTH: Stronger blue base with high saturation */
+  background: linear-gradient(
+    145deg, 
+    rgba(186, 230, 253, 0.9) 0%, 
+    rgba(125, 211, 252, 0.8) 100%
+  ) !important;
+  
+  /* High-end saturation makes the blue "pop" through the glass */
+  backdrop-filter: blur(30px) saturate(200%) brightness(105%);
+  -webkit-backdrop-filter: blur(30px) saturate(200%) brightness(105%);
+  
+  /* 🏥 MEDICAL LENS BORDER: Crystal white edge */
+  border: 1.5px solid rgba(255, 255, 255, 0.95) !important;
+  
+  padding: 3.5rem;
+  border-radius: 32px;
+  
+  /* Deep Blue Atmosphere Shadow */
+  box-shadow: 
+    0 25px 50px -12px rgba(14, 165, 233, 0.25),
+    inset 0 1px 2px rgba(255, 255, 255, 0.6);
+    
   width: 100%;
-  max-width: 400px;
-  text-align: center;
+  max-width: 460px;
+  animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
 }
 
-.login-card input {
+/* Clinical Highlight Line (The "Seal") */
+.login-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  padding: 12px;
-  margin-bottom: 10px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  font-size: 14px;
+  height: 4px;
+  background: linear-gradient(90deg, #3b82f6, #0ea5e9);
+  opacity: 0.8;
 }
 
-.login-card button {
+.card-header h1 {
+  font-size: 2.2rem;
+  color: #0f172a;
+  margin-bottom: 0.6rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.card-header p {
+  color: #1e3a8a; /* Deepened blue for subtext */
+  margin-bottom: 2.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+/* --- INPUTS: CLINICAL PRECISION --- */
+.input-group {
+  margin-bottom: 1.8rem;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.input-group input {
   width: 100%;
-  padding: 12px;
-  border: none;
-  border-radius: 10px;
-  background-color: #3b82f6;
+  padding: 16px 20px;
+  border-radius: 14px;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  background: rgba(255, 255, 255, 0.9); /* Solid enough for readability */
+  font-size: 16px; 
+  color: #0f172a;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #3b82f6; 
+  background: #ffffff;
+  /* Glow matches the Sky Blue theme */
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+  transform: translateY(-2px);
+}
+
+/* --- THE ACTION BUTTON: AUTHORITY BLUE --- */
+.login-btn {
+  width: 100%;
+  padding: 18px;
+  background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
   color: white;
-  font-size: 16px;
+  border: none;
+  border-radius: 16px;
+  font-size: 1.1rem;
+  font-weight: 700;
   cursor: pointer;
+  box-shadow: 0 10px 25px -5px rgba(29, 78, 216, 0.4);
+  transition: all 0.3s ease;
+  margin-top: 1.2rem;
 }
 
-.login-card button:disabled {
-  background-color: #9bbcf5;
-  cursor: not-allowed;
+.login-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px -5px rgba(29, 78, 216, 0.5);
+  filter: brightness(1.1);
 }
 
-.error-text {
-  color: red;
-  font-size: 12px;
-  margin-bottom: 10px;
+/* --- THE SWITCH SECTION --- */
+.divider {
+  margin: 2.5rem 0;
+  color: #1e3a8a;
+  font-weight: 700;
+  opacity: 0.4;
 }
 
 .switch-text {
-  margin-top: 15px;
-  font-size: 14px;
+  font-size: 0.95rem;
+  color: #1e293b;
+  font-weight: 600;
 }
 
-.switch-link {
-  color: #3b82f6;
-  cursor: pointer;
-  font-weight: bold;
+.register-highlight {
+  color: #1d4ed8; 
+  font-weight: 800;
+  text-decoration: none;
+  padding-left: 5px;
+}
+
+.error-box {
+  background: rgba(254, 226, 226, 0.95);
+  color: #991b1b;
+  padding: 14px;
+  border-radius: 12px;
+  font-weight: 700;
+  border-left: 5px solid #ef4444;
+  margin-bottom: 1.5rem;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
