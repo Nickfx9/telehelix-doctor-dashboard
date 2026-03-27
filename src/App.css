@@ -1,4 +1,4 @@
-/* --- 1. THE REBALANCED ENVIRONMENTAL ENGINE --- */
+/* --- 1. THE REBALANCED ENVIRONMENTAL ENGINE (Futuristic Light Theme) --- */
 #root {
   width: 100%;
   min-height: 100vh;
@@ -10,12 +10,12 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  /* 🌊 RECONFIGURED: Left-to-Right flow. Starts with Medical Green, ends in Sky Blue */
+  /* 🌊 Sleek, high-clarity medical gradient */
   background: linear-gradient(
     110deg, 
-    #dcfce7 0%,   /* Vibrant Mint Green on the Left */
-    #f0f9ff 45%,  /* Neutral White Center for clarity */
-    #e0f2fe 100%  /* Sky Blue on the Right for the Login Card */
+    #f0fdf4 0%,   /* Ultra-light Mint */
+    #f8fafc 45%,  /* Crisp High-Tech Slate White */
+    #e0f2fe 100%  /* Clinical Sky Blue */
   );
   font-family: 'Inter', system-ui, sans-serif;
   color: #0f172a; 
@@ -23,21 +23,21 @@ body {
   position: relative;
 }
 
-/* 🟢 LEFT BLOB: Forcing the Green Branding */
+/* 🟢 LEFT BLOB: Holographic Green */
 body::before {
   content: "";
   position: absolute;
-  top: 20%;
+  top: 15%;
   left: -5%;
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, transparent 70%);
-  filter: blur(100px);
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.12) 0%, transparent 70%);
+  filter: blur(90px);
   z-index: -1;
-  animation: drift-left 25s infinite alternate ease-in-out;
+  animation: drift-left 20s infinite alternate ease-in-out;
 }
 
-/* 🔵 RIGHT BLOB: Maintaining the Sky atmosphere */
+/* 🔵 RIGHT BLOB: Clinical Blue */
 body::after {
   content: "";
   position: absolute;
@@ -45,13 +45,13 @@ body::after {
   right: -5%;
   width: 700px;
   height: 700px;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.12) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
   filter: blur(80px);
   z-index: -1;
-  animation: drift-right 30s infinite alternate ease-in-out;
+  animation: drift-right 25s infinite alternate ease-in-out;
 }
 
-/* --- 2. GLOBAL NAVIGATION (Fixed Positions - Logo Untouched) --- */
+/* --- 2. GLOBAL NAVIGATION --- */
 .global-nav {
   position: fixed;
   top: 0;
@@ -61,9 +61,10 @@ body::after {
   justify-content: space-between;
   align-items: center;
   padding: 1.2rem 3rem; 
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(25px);
-  border-bottom: 1px solid rgba(15, 23, 42, 0.05);
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(30px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
   z-index: 100;
 }
 
@@ -73,7 +74,7 @@ body::after {
   gap: 18px;
 }
 
-/* 🔒 LOGO BOX - POSITIONS UNTOUCHED AS REQUESTED */
+/* 🔒 LOGO BOX - POSITIONS & STYLES UNTOUCHED AS REQUESTED */
 .logo-box {
   background: linear-gradient(135deg, #3b82f6 0%, #064e3b 100%); 
   width: 60px;  
@@ -106,11 +107,11 @@ body::after {
 .nav-middle-links {
   display: flex;
   gap: 30px;
-  background: rgba(255, 255, 255, 0.4);
-  padding: 8px 24px;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 10px 28px;
   border-radius: 30px;
-  border: 1px solid rgba(15, 23, 42, 0.05);
-  /* Ensures the center links stay perfectly centered */
+  border: 1px solid rgba(255, 255, 255, 1);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.03);
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -125,23 +126,29 @@ body::after {
 }
 
 .nav-link-item:hover {
-  color: #059669; /* Hover turns Green to match branding */
+  color: #2563eb; /* Futuristic Blue Hover */
+  text-shadow: 0 0 8px rgba(37, 99, 235, 0.3);
 }
 
+/* 🔴 Quantum Pulse Glow for Secure Badge */
 .secure-badge {
   font-size: 0.75rem;
   font-weight: 700;
   color: #065f46;
-  background: #f0fdf4;
+  background: #ecfdf5;
   padding: 8px 16px;
   border-radius: 20px;
-  border: 1px solid #bbf7d0;
+  border: 1px solid #6ee7b7;
   display: flex;
   align-items: center;
   gap: 6px;
 }
 
-/* --- 3. THE SPLIT HERO LAYOUT (Correctly Centered) --- */
+.pulse-glow {
+  animation: quantum-pulse 2s infinite;
+}
+
+/* --- 3. THE SPLIT HERO LAYOUT --- */
 .auth-main-layout {
   display: flex;
   min-height: 100vh;
@@ -153,99 +160,161 @@ body::after {
   flex: 1.2;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Perfect vertical center */
+  justify-content: center;
   padding: 0 8%;
+}
+
+/* ⚡ New System Status Chip */
+.system-status-chip {
+  align-self: flex-start;
+  background: linear-gradient(90deg, #ecfdf5 0%, #dcfce7 100%);
+  color: #059669;
+  border: 1px solid #a7f3d0;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(5, 150, 105, 0.1);
 }
 
 .hero-greeting {
   font-size: 4.5rem;
   font-weight: 900;
-  line-height: 1;
-  color: #0f172a;
+  line-height: 1.05;
+  background: linear-gradient(to right, #0f172a, #334155);
+  
+  /* The standard property */
+  background-clip: text; 
+  /* The vendor-specific property (this might stay underlined, but it's okay) */
+  -webkit-background-clip: text; 
+  
+  /* Required for the gradient to show through the letters */
+  -webkit-text-fill-color: transparent; 
+  
   margin-bottom: 1.5rem;
-  letter-spacing: -3px;
+  letter-spacing: -2.5px;
 }
 
 .hero-description {
-  font-size: 1.3rem;
-  color: #334155;
-  max-width: 520px;
-  line-height: 1.6;
-  border-left: 5px solid #059669; /* Strong green accent line */
+  font-size: 1.25rem;
+  color: #475569;
+  max-width: 540px;
+  line-height: 1.7;
+  border-left: 4px solid #3b82f6; /* Changed to tech blue */
   padding-left: 25px;
 }
 
-/* 🚀 Capability Grid Branding */
+/* 🚀 Futuristic Capability Grid */
 .capability-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  gap: 24px;
   margin-top: 50px;
-  max-width: 600px;
+  max-width: 620px;
 }
 
 .cap-item {
   display: flex;
   align-items: center;
   gap: 15px;
-  background: rgba(255, 255, 255, 0.4);
-  padding: 16px;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 16px 20px;
   border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(10px);
-  transition: transform 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.02);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .cap-item:hover {
-  transform: translateY(-5px);
-  border-color: #059669;
+  transform: translateY(-5px) scale(1.02);
+  border-color: #93c5fd;
+  box-shadow: 0 12px 30px rgba(59, 130, 246, 0.1);
 }
 
 .cap-icon {
   font-size: 1.6rem;
   background: white;
-  width: 45px;
-  height: 45px;
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+.glow-icon {
+  position: relative;
+}
+.glow-icon::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.cap-item:hover .glow-icon::after {
+  opacity: 1;
 }
 
 .cap-text strong {
   display: block;
   font-size: 1rem;
+  font-weight: 800;
   color: #0f172a;
 }
 
 .cap-text span {
   font-size: 0.8rem;
   color: #64748b;
+  font-weight: 500;
 }
 
-/* 🛡️ Right Content Zone - Perfectly Centered for the Blue Card */
+/* 🛡️ RIGHT CONTENT ZONE & THE ISOLATED CARD ROOM */
 .auth-content-zone {
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 40px; /* Adjusted to balance nav height */
-  background: transparent; 
+  padding-top: 40px; 
 }
 
-/* --- 4. FOOTER (Clean & Non-Intrusive) --- */
+/* 🌟 THE CARD CONTAINER: Makes the forms stand perfectly on their own */
+.auth-card-container {
+  background: #ffffff; /* Solid white background so it stands out from the gradient */
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255,255,255,0.8) inset;
+  width: 100%;
+  max-width: 440px;
+  position: relative;
+  z-index: 10;
+  /* Optional: Add a very subtle border to frame it like a futuristic device */
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+/* --- 4. FOOTER --- */
 .auth-footer {
   position: fixed;
   bottom: 0;
   width: 100%;
   padding: 20px 0;
-  background: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(15px);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
   display: flex;
   justify-content: center;
   font-size: 0.85rem;
-  color: #475569;
+  font-weight: 600;
+  color: #64748b;
   z-index: 10;
 }
 
@@ -266,19 +335,27 @@ body::after {
 /* --- 5. ANIMATIONS --- */
 @keyframes drift-left {
   from { transform: translate(0, 0); }
-  to { transform: translate(50px, -50px); }
+  to { transform: translate(60px, -60px); }
 }
 
 @keyframes drift-right {
   from { transform: translate(0, 0); }
-  to { transform: translate(-60px, 60px); }
+  to { transform: translate(-70px, 70px); }
 }
 
+@keyframes quantum-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(110, 231, 183, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(110, 231, 183, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(110, 231, 183, 0); }
+}
+
+/* RESPONSIVE DESIGN */
 @media (max-width: 1100px) {
   .nav-middle-links { display: none; }
   .auth-main-layout { flex-direction: column; }
-  .brand-hero-zone { margin-top: 100px; padding: 4rem 2rem; text-align: center; align-items: center; }
-  .hero-greeting { font-size: 3rem; }
-  .hero-description { border-left: none; border-top: 4px solid #059669; padding-left: 0; padding-top: 20px; }
-  .auth-content-zone { padding: 40px 20px; }
+  .brand-hero-zone { margin-top: 120px; padding: 4rem 2rem; text-align: center; align-items: center; }
+  .system-status-chip { align-self: center; }
+  .hero-greeting { font-size: 3.2rem; }
+  .hero-description { border-left: none; border-top: 4px solid #3b82f6; padding-left: 0; padding-top: 20px; }
+  .auth-content-zone { padding: 40px 20px 100px 20px; }
 }

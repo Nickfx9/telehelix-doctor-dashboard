@@ -320,11 +320,9 @@ export default function Dashboard() {
   const isMessagesActive = activeTab === "Messages";
 
   return (
-    <div
-      className={`telehelix-layout tab-${activeTab.toLowerCase()} ${
-        isMessagesActive ? "messages-view-active" : ""
-      } ${inCall ? "incall-active" : ""}`}
-    >
+    <div className={`telehelix-layout tab-${activeTab.toLowerCase()} ${isMessagesActive ? "messages-view-active" : ""} ${inCall ? "incall-active" : ""}`}>
+      
+      {/* 1. VIDEO CONSULTATION SUITE (HIGHEST PRIORITY) */}
       {inCall && callData && (
         <div className="video-consultation-suite">
           <VideoRoom
@@ -337,19 +335,18 @@ export default function Dashboard() {
         </div>
       )}
 
+      {/* 2. TOP VIEW HEADER (BREADCRUMB STYLE) */}
       {!isMessagesActive && !inCall && (
         <header className="view-header">
-          <button
-            className="fab-menu"
-            onClick={() => setSidebarOpen((prev) => !prev)}
-          >
-            ☰
-          </button>
+          <button className="fab-menu" onClick={() => setSidebarOpen(true)}>☰</button>
           <div className="header-flex">
-            <h1>{activeTab}</h1>
+            <div className="header-titles">
+              <span className="breadcrumb-label" style={{ opacity: 0.5, fontSize: '0.8rem', display: 'block' }}>Workspace / </span>
+              <h1 className="active-tab-title" style={{ fontSize: '1.4rem', margin: 0, fontWeight: '800' }}>{activeTab}</h1>
+            </div>
             <div className="dr-status-pill">
-              <span className="dot online"></span>
-              Dr. {doctor?.fullName?.split(" ")[0] || "User"} (Live)
+              <span className="dot online pulse-glow"></span>
+              <span className="status-text">Dr. {doctor?.fullName?.split(" ")[0] || "Helix"} (Live)</span>
             </div>
           </div>
         </header>

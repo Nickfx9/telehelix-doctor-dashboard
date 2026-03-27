@@ -14,10 +14,10 @@ function App() {
     return <Dashboard doctor={user} />;
   }
 
-  // 2. If not logged in, show the Live & Casual Auth Screen
+  // 2. If not logged in, show the Futuristic Auth Screen
   return (
-    <div className="auth-system-container">
-      {/* 1. BRANDING NAVIGATION (Logo position is untouched) */}
+    <div className="auth-system-container futuristic-theme">
+      {/* 1. BRANDING NAVIGATION */}
       <nav className="global-nav">
         <div className="nav-logo-section">
           <div className="logo-box">
@@ -32,91 +32,93 @@ function App() {
           </div>
         </div>
 
-        {/* 🚀 Middle Navbar Links (Professional Context) */}
+        {/* 🚀 Middle Navbar Links (Next-Gen Context) */}
         <div className="nav-middle-links">
-          <span className="nav-link-item">Provider Network</span>
-          <span className="nav-link-item">Clinical Standards</span>
-          <span className="nav-link-item">Help Center</span>
+          <span className="nav-link-item">Neural Network Providers</span>
+          <span className="nav-link-item">Clinical AI Standards</span>
+          <span className="nav-link-item">Support Protocol</span>
         </div>
         
         <div className="nav-status">
-          <span className="secure-badge">● System Live & Secure</span>
+          <span className="secure-badge pulse-glow">● Quantum-Secure Link</span>
         </div>
       </nav>
 
       <main className="auth-main-layout">
-        {/* 2. LEFT HERO SECTION (Value Proposition & Branding) */}
+        {/* 2. LEFT HERO SECTION (Futuristic Value Proposition & Dashboard Preview) */}
         <section className="brand-hero-zone">
            <div className="hero-content">
-              <h2 className="hero-greeting">Medicine in Harmony.</h2>
+              <div className="system-status-chip">System Online v3.0</div>
+              <h2 className="hero-greeting">The Future of Clinical Practice.</h2>
               <p className="hero-description">
-                Experience a clinical workspace that feels like a breath of fresh air. 
-                Simple, peaceful, and professional.
+                Access your next-generation medical dashboard. Experience predictive patient routing, real-time biometric syncing, and holographic-ready clinical records.
               </p>
 
-              {/* ⚡ Capability Grid: Previews the "Inside" tools */}
+              {/* ⚡ Capability Grid: Previews the "Inside" Dashboard tools */}
               <div className="capability-grid">
                 <div className="cap-item">
-                  <span className="cap-icon">📹</span>
+                  <span className="cap-icon glow-icon">📹</span>
                   <div className="cap-text">
-                    <strong>HD Consultation</strong>
+                    <strong>4K Telepresence</strong>
                     <span>Ultra-low latency RTC</span>
                   </div>
                 </div>
                 <div className="cap-item">
-                  <span className="cap-icon">⏳</span>
+                  <span className="cap-icon glow-icon">🧠</span>
                   <div className="cap-text">
-                    <strong>Smart Queue</strong>
-                    <span>Automated patient triage</span>
+                    <strong>AI-Assisted Triage</strong>
+                    <span>Predictive patient queue</span>
                   </div>
                 </div>
                 <div className="cap-item">
-                  <span className="cap-icon">🩺</span>
+                  <span className="cap-icon glow-icon">🧬</span>
                   <div className="cap-text">
-                    <strong>Clinical Tools</strong>
-                    <span>Digital RX & Records</span>
+                    <strong>Biometric Sync</strong>
+                    <span>Real-time vitals & RX</span>
                   </div>
                 </div>
                 <div className="cap-item">
-                  <span className="cap-icon">🛡️</span>
+                  <span className="cap-icon glow-icon">🛡️</span>
                   <div className="cap-text">
-                    <strong>Secure Vault</strong>
-                    <span>AES-256 Data Encryption</span>
+                    <strong>Zero-Trust Vault</strong>
+                    <span>AES-256 Quantum Encryption</span>
                   </div>
                 </div>
               </div>
            </div>
         </section>
 
-        {/* 3. RIGHT AUTH SECTION (Direct Injection of Cards) */}
+        {/* 3. RIGHT AUTH SECTION (Isolated Card Room) */}
         <section className="auth-content-zone">
-          {/* CLEANSED: We removed the extra headers and wrappers. 
-              The Login and Register components now sit directly in the viewport
-              as the primary focus cards.
+          {/* Added an isolated wrapper so the Login/Register cards 
+            have a dedicated "room" to stand by themselves, 
+            perfect for a glassmorphism or neon-border floating effect.
           */}
-          {showRegister ? (
-            <Register
-              onRegister={(doctor) => setUser(doctor)}
-              switchToLogin={() => setShowRegister(false)}
-            />
-          ) : (
-            <Login
-              onLogin={(doctor) => setUser(doctor)}
-              switchToRegister={() => setShowRegister(true)}
-            />
-          )}
+          <div className="auth-card-container">
+            {showRegister ? (
+              <Register
+                onRegister={(doctor) => setUser(doctor)}
+                switchToLogin={() => setShowRegister(false)}
+              />
+            ) : (
+              <Login
+                onLogin={(doctor) => setUser(doctor)}
+                switchToRegister={() => setShowRegister(true)}
+              />
+            )}
+          </div>
         </section>
       </main>
 
-      {/* 4. CASUAL FOOTER */}
+      {/* 4. FUTURISTIC FOOTER */}
       <footer className="auth-footer">
         <div className="footer-content">
           <p>
-            © 2026 TeleHelix Telemedicine • HIPAA Compliant •{" "}
-            <span className="link">Privacy & Legal</span>
+            © 2026 TeleHelix Systems • Global Healthcare Grid •{" "}
+            <span className="link">Data Protocols</span>
           </p>
           <div className="encryption-notice">
-              🔒 Encrypted End-to-End
+              🛡️ End-to-End Encrypted Network
           </div>
         </div>
       </footer>
